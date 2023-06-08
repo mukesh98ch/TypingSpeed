@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+## Explanation of Code:- 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. This script imports the required dependencies: React, useState, useEffect, and useRef from the 'react' package. The './App.css' import is for CSS files with the specific styling of the App component.
 
-## Available Scripts
+import React, { useState, useEffect, useRef } from 'react';
+import './App.css';
 
-In the project directory, you can run:
+2. The beginning of the App activity phase. It uses the useState hook to trigger multiple state variables. These variables include text (user input), sampleText (randomly generated text), started (indicates whether recording was started), startTime (time stamp when recording was started), endTime (time stamp time completed writing), wpm (words per minute), accuracy (percentage of accuracy), timeLimit (selected time to write), and timerRunning (indicates whether the timer is running). textareaRef The textarea is a reference to the DOM element and is created using the useRef hook.
 
-### `npm start`
+3. The generateSampleText function selects a random sentence or paragraph from a set of sample texts (loremIpsumText) and updates the sampleText condition. Use the useEffect hook to create an instance text when the object is loaded (empty dependency array[]).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. useEffect hook is responsible for resetting the state variable whenever the sampleText changes. Used to override progress of the text when a new sample text is created.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. The handleInputChange function is called whenever the value of the textarea is changed. It updates the text position with the input value. If the script has not yet started, it sets the started condition to true, writes startTime, and starts the timer. If the input matches sampleText, it writes endTime and stops the timer.
 
-### `npm test`
+6. useEffect hook is responsible for updating the timer every second when the timerRunning condition is true. It calculates the elapsed time based on the startTime and checks if the timeLimit has been exceeded. When the timeout is reached, setting timerRunning to false stops the timer and clears the interval.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. useEffect hook calculates typing accuracy and words per minute (WPM) after typing. This works when the endTime, startTime, sampleText.length, or text is changed. It calculates elapsed time in minutes, number of words in sampleText, number of lines typed, percent accuracy, and WPM. The calculated values ​​are then saved in accuracy and wpm mode.
 
-### `npm run build`
+8. Clicking the "Start" button calls the handleStart function. It creates a new sample script, sets up the conditions needed to initiate a new session registration, reschedules the time, clears the script progress, and highlights the available information for the user to enter
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+9. The JSX code that shows the UI for the typing speed check application. It displays sample text, text field for user input, typing precision and WPM After typing, dropdown to select time limit, start new typing session with "Start" button display value, onChange, disabled properties are set in textarea and select elements based on national variables.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+10. Using all these steps i create a typing speed web appication.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
