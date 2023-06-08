@@ -1,9 +1,13 @@
+## About
+I learn touch typing from monkeytype and ngram-type to improve my typing speed. Test project is a web application built with React, JavaScript, and CSS. It provides users with a platform to test and improve their typing speed and accuracy. The main goal of this project is to develop an interactive and fun typing test that measures user typing speed and provides real-time feedback.
+Test Project can be expanded to include other features such as user accuracy in comparing typing skills with others, saving test results, leaderboard functionality, etc. It serves as a useful tool individuals who want to learn and grow their writing skills
+
 ## Explanation of Code:- 
 
 1. This script imports the required dependencies: React, useState, useEffect, and useRef from the 'react' package. The './App.css' import is for CSS files with the specific styling of the App component.
 
-import React, { useState, useEffect, useRef } from 'react';
-import './App.css';
+```import React, { useState, useEffect, useRef } from 'react';```
+```import './App.css';```
 
 2. The beginning of the App activity phase. It uses the useState hook to trigger multiple state variables. These variables include text (user input), sampleText (randomly generated text), started (indicates whether recording was started), startTime (time stamp when recording was started), endTime (time stamp time completed writing), wpm (words per minute), accuracy (percentage of accuracy), timeLimit (selected time to write), and timerRunning (indicates whether the timer is running). textareaRef The textarea is a reference to the DOM element and is created using the useRef hook.
 
